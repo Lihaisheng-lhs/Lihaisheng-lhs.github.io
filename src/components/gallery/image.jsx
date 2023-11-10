@@ -39,7 +39,7 @@ class Image extends Component{
         </div>
           <div className="back" onClick={this.handleClick.bind(this)}>
             <p>
-              {this.props.data.desc.replace(/\n/g, '<br />')}
+              {`${this.props.data.desc}\n\n`}
             </p>
           </div>
       </figure>
