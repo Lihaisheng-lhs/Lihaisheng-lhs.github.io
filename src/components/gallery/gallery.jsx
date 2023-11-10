@@ -5,11 +5,6 @@ import Image from "./image.jsx";
 import Controller from "./controller.jsx";
 import "./gallery.less";
 
-// let getImgAsyncData = ImgsData.map(img => {
-//   const modules = import.meta.glob("./imgs/\*");
-//   return modules["./imgs/" + img.filename]()
-// })
-
 let getRandom = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
@@ -168,7 +163,6 @@ class Gallery extends Component {
       figureHeight = figure.scrollHeight,
       halfFigureWidth = Math.ceil(figureWidth / 2),
       halfFigureHeight = Math.ceil(figureHeight / 2);
-    console.log(halfStageWidth, halfFigureWidth, halfStageHeight, halfFigureHeight, window.innerHeight, 'innner------')
     this.constantPos = {
       // 中心 figure 位置
       centerPos: {
@@ -199,7 +193,7 @@ class Gallery extends Component {
     // let asyncImgData = await Promise.all(getImgAsyncData)
     ImgsData.forEach(
       function (imgInfo, index) {
-        imgInfo.url = `/src/components/gallery/imgs/${imgInfo.filename}` || asyncImgData[index].default;
+        imgInfo.url = `/public/${imgInfo.filename}` || asyncImgData[index].default;
         if (!this.state.figureArrangeArr[index]) {
           this.state.figureArrangeArr[index] = {
             pos: {
