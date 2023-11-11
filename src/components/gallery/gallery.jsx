@@ -86,13 +86,13 @@ class Gallery extends Component {
   // 重新排布图片
   reArrangFigure(centerIndex) {
     let constantPos = this.constantPos,
-        centerPos = constantPos.centerPos,
-        horizontalRange = constantPos.horizontalRange,
-        verticalRange = constantPos.verticalRange,
-        leftSectionX = horizontalRange.leftSectionX,
-        rightSectionX = horizontalRange.rightSectionX;
+      centerPos = constantPos.centerPos,
+      horizontalRange = constantPos.horizontalRange,
+      verticalRange = constantPos.verticalRange,
+      leftSectionX = horizontalRange.leftSectionX,
+      rightSectionX = horizontalRange.rightSectionX;
     let figureArrangeArr = this.state.figureArrangeArr,
-        centerFigure = figureArrangeArr.splice(centerIndex, 1);
+      centerFigure = figureArrangeArr.splice(centerIndex, 1);
 
     // 居中图片
     centerFigure = {
@@ -103,18 +103,18 @@ class Gallery extends Component {
     };
     // 上部区域图片
     let topArrNum = Math.floor(Math.random() * 2), // 上部图片数量 0~1
-        topIndex = Math.floor(
-            Math.random() * (figureArrangeArr.length - topArrNum)
-        ), // 上部图片起始 index
-        figureTopArr = figureArrangeArr.splice(topIndex, topArrNum);
+      topIndex = Math.floor(
+        Math.random() * (figureArrangeArr.length - topArrNum)
+      ), // 上部图片起始 index
+      figureTopArr = figureArrangeArr.splice(topIndex, topArrNum);
 
     figureTopArr.forEach((img, index) => {
       figureTopArr[index] = {
         pos: {
           left: getRandom(verticalRange.x[0], verticalRange.x[1]),
           top: getRandom(
-              verticalRange.topSectionY[0],
-              verticalRange.topSectionY[1]
+            verticalRange.topSectionY[0],
+            verticalRange.topSectionY[1]
           ),
         },
         rotate: getRandomDeg,
@@ -153,16 +153,16 @@ class Gallery extends Component {
   componentDidMount() {
     // 获取 stage 的宽高
     let stage = document.getElementById("stage"),
-        stageWidth = stage.scrollWidth,
-        stageHeight = stage.scrollHeight,
-        halfStageWidth = Math.ceil(stageWidth / 2),
-        halfStageHeight = Math.ceil(stageHeight / 2);
+      stageWidth = stage.scrollWidth,
+      stageHeight = stage.scrollHeight,
+      halfStageWidth = Math.ceil(stageWidth / 2),
+      halfStageHeight = Math.ceil(stageHeight / 2);
     // 获取 figure 的宽高
     let figure = document.getElementById("figure0"),
-        figureWidth = figure.scrollWidth,
-        figureHeight = figure.scrollHeight,
-        halfFigureWidth = Math.ceil(figureWidth / 2),
-        halfFigureHeight = Math.ceil(figureHeight / 2);
+      figureWidth = figure.scrollWidth,
+      figureHeight = figure.scrollHeight,
+      halfFigureWidth = Math.ceil(figureWidth / 2),
+      halfFigureHeight = Math.ceil(figureHeight / 2);
     this.constantPos = {
       // 中心 figure 位置
       centerPos: {
@@ -192,44 +192,44 @@ class Gallery extends Component {
     let imgFigures = [];
     // let asyncImgData = await Promise.all(getImgAsyncData)
     ImgsData.forEach(
-        function (imgInfo, index) {
-          imgInfo.url = `/public/${imgInfo.filename}` || asyncImgData[index].default;
-          if (!this.state.figureArrangeArr[index]) {
-            this.state.figureArrangeArr[index] = {
-              pos: {
-                left: 0,
-                top: 0,
-              },
-              rotate: 0,
-              isReverse: false,
-              isCenter: false,
-            };
-          }
-          imgFigures.push(
-              <Image
-                  data={imgInfo}
-                  key={index}
-                  id={"figure" + index}
-                  arrange={this.state.figureArrangeArr[index]}
-                  reverse={this.reverseFigure(index)}
-                  center={this.putFigureCenter(index)}
-              />
-          );
-          navigators.push(
-              <Controller
-                  key={index}
-                  arrange={this.state.figureArrangeArr[index]}
-                  reverse={this.reverseFigure(index)}
-                  center={this.putFigureCenter(index)}
-              />
-          );
-        }.bind(this)
+      function (imgInfo, index) {
+        imgInfo.url = `/${imgInfo.filename}` || asyncImgData[index].default;
+        if (!this.state.figureArrangeArr[index]) {
+          this.state.figureArrangeArr[index] = {
+            pos: {
+              left: 0,
+              top: 0,
+            },
+            rotate: 0,
+            isReverse: false,
+            isCenter: false,
+          };
+        }
+        imgFigures.push(
+          <Image
+            data={imgInfo}
+            key={index}
+            id={"figure" + index}
+            arrange={this.state.figureArrangeArr[index]}
+            reverse={this.reverseFigure(index)}
+            center={this.putFigureCenter(index)}
+          />
+        );
+        navigators.push(
+          <Controller
+            key={index}
+            arrange={this.state.figureArrangeArr[index]}
+            reverse={this.reverseFigure(index)}
+            center={this.putFigureCenter(index)}
+          />
+        );
+      }.bind(this)
     );
     return (
-        <div className="stage" id="stage">
-          <div className="img-container">{imgFigures}</div>
-          <nav className="img-nav">{navigators}</nav>
-        </div>
+      <div className="stage" id="stage">
+        <div className="img-container">{imgFigures}</div>
+        <nav className="img-nav">{navigators}</nav>
+      </div>
     );
   }
 }
