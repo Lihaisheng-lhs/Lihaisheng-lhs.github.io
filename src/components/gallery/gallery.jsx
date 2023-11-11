@@ -193,7 +193,7 @@ class Gallery extends Component {
     // let asyncImgData = await Promise.all(getImgAsyncData)
     ImgsData.forEach(
       function (imgInfo, index) {
-        imgInfo.url = `/${imgInfo.filename}` || asyncImgData[index].default;
+        imgInfo.url = `/public/${imgInfo.filename}` || asyncImgData[index].default;
         if (!this.state.figureArrangeArr[index]) {
           this.state.figureArrangeArr[index] = {
             pos: {
