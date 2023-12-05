@@ -1,7 +1,19 @@
-# Vue 3 + Vite
+# 烟花模拟器
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+注意：此源码是基于 [Firework Simulator v2](https://codepen.io/MillerTime/pen/XgpNwb) 的二次修改
 
-## Recommended IDE Setup
+我仅作翻译处理以及其他优化
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Demo 1：https://nianbroken.github.io/Firework_Simulator/
+
+Demo 2：https://fireworks.nianbroken.top/
+
+------
+
+展示图
+
+![静态图](https://cdn.jsdelivr.net/gh/NianBroken/Firework_Simulator/Image_Preview.png)
+
+------
+
+若有翻译错译或其他问题，请在`Issues`提交。
