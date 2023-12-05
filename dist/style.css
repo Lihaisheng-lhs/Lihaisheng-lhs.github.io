@@ -87,6 +87,8 @@ body {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
+  position: absolute;
+  bottom: 60px;
 }
 .controls {
   position: absolute;
